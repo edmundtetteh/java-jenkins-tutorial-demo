@@ -1,9 +1,5 @@
-FROM tomcat:latest
-
-LABEL maintainer="Nidhi Gupta"
-
-ADD ./target/LoginWebApp-1.war /usr/local/tomcat/webapps/
-
+FROM openjdk:8
+ADD target/java-jenkins-docker.jar java-jenkins-docker.jar
+ENTRYPOINT ["java", "-jar","java-jenkins-docker.jar"]
 EXPOSE 8080
 
-CMD ["catalina.sh", "run"]
